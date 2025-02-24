@@ -1,0 +1,241 @@
+/* Establece la fuente pixelada (puedes agregarla desde Google Fonts) */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+/* Variables personalizadas */
+:root {
+  --primary-color: #00ff00; /* Verde neón */
+  --border-color: #e2e8f0;
+  --background-color: #2d3748; /* Fondo oscuro estilo retro */
+  --error-color: #ff0000; /* Rojo neón */
+  --success-color: #38a169;
+  --highlight-color: #ffff00; /* Amarillo neón */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Press Start 2P", monospace; /* Fuente retro estilo videojuego */
+  line-height: 1.5;
+  background-color: #1a202c; /* Fondo oscuro */
+  color: var(--primary-color);
+  padding: 2rem;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #222; /* Fondo oscuro para el contenedor */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 255, 0, 0.4); /* Sombra verde neón */
+}
+
+.button-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #333;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 255, 0, 0.4);
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  text-shadow: 0 0 10px var(--primary-color); /* Efecto de resplandor */
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.3s ease-in-out;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.2); /* Brillo verde */
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-button,
+.nav-button,
+.delete-button {
+  background-color: var(--primary-color);
+  color: #222;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #00e600; /* Brillo más fuerte */
+  transform: scale(1.05); /* Efecto de agrandar */
+}
+
+.nav-button:hover,
+.delete-button:hover {
+  background-color: var(--highlight-color); /* Amarillo neón */
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 1rem;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Estilos para la lista de productos */
+.product-card {
+  background: #222; /* Fondo oscuro para las tarjetas */
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 255, 0, 0.4); /* Sombra verde */
+  background-color: #333; /* Fondo más claro al pasar el mouse */
+}
+
+.product-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  color: var(--highlight-color); /* Título en amarillo neón */
+}
+
+.product-info .description {
+  color: #bbb;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.product-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.product-details .stock {
+  color: #bbb;
+}
+
+.product-details .price {
+  font-weight: bold;
+  color: var(--primary-color);
+  text-shadow: 0 0 5px var(--primary-color); /* Efecto de resplandor en el precio */
+}
+
+.product-details .delete-button {
+  background-color: var(--error-color);
+  color: white;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.product-details .delete-button:hover {
+  background-color: #ff4d4d; /* Rojo brillante */
+}
+
+/* Añadir efecto de parpadeo para alertas o mensajes */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.swal2-title {
+  font-family: "Press Start 2P", monospace; /* Fuente retro */
+  color: var(--primary-color);
+  animation: blink 1s infinite; /* Parpadeo en el título */
+}
+
+.swal2-popup {
+  background-color: #333;
+  border-radius: 8px;
+  color: white;
+  font-family: "Press Start 2P", monospace;
+}
+
+.swal2-confirm,
+.swal2-cancel {
+  background-color: var(--primary-color);
+  color: #222;
+  border-radius: 4px;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  font-family: "Press Start 2P", monospace;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.swal2-confirm:hover,
+.swal2-cancel:hover {
+  transform: scale(1.1);
+  background-color: #00e600;
+}
+
+.swal2-cancel {
+  background-color: var(--error-color);
+}
+
+.swal2-cancel:hover {
+  background-color: #ff4d4d;
+}
